@@ -63,21 +63,51 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text("Learning App"),
+        title: const Text("Top footbal players list"),
       ),
       body:
          SafeArea(
-          child: ClipRRect(
-            borderRadius: const BorderRadius.all(
-                Radius.circular(1000)
-            ),
-
-            child: Image(
-              image: AssetImage(image1),
-              filterQuality: FilterQuality.high,
-              // opacity: const AlwaysStoppedAnimation(0.9),
-            ),
-          )
+           child: Center(
+             child: Padding(
+               padding: const EdgeInsets.symmetric(vertical: 1.0),
+               child: DataTable(
+                 headingRowColor:MaterialStateProperty.all(Colors.grey),
+                 border: TableBorder.all(),
+                 headingTextStyle: const TextStyle(
+                   fontFamily: "Dancing_Script",
+                   fontSize: 18.0,
+                 ),
+                 columns: const [
+                   DataColumn(label: Text("S no")),
+                   DataColumn(label: Text("Name")),
+                   DataColumn(label: Text("Position"))
+                 ],
+                 rows: const [
+                   DataRow(cells: [
+                     DataCell(Text("1")),
+                     DataCell(Text("Lionel Messi")),
+                     DataCell(Text("RW"))
+                   ]),
+                   DataRow(cells: [
+                     DataCell(Text("2")),
+                     DataCell(Text("Cristiano Roanldo")),
+                     DataCell(Text("ST"))
+                   ]),
+                 ],
+               ),
+             ),
+           ),
+          // child: ClipRRect(
+          //   borderRadius: const BorderRadius.all(
+          //       Radius.circular(1000)
+          //   ),
+          //
+          //   child: Image(
+          //     image: AssetImage(image1),
+          //     filterQuality: FilterQuality.high,
+          //     opacity: const AlwaysStoppedAnimation(0.9),
+          //   ),
+          // )
               // Icon(
               //   Icons.waving_hand_outlined,
               //   size: 100,
